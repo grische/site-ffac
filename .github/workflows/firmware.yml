@@ -29,7 +29,7 @@ jobs:
         id: set_target
         shell: bash
         run: |
-          target_list=$(make print-targets | jq -Rsc '.[:-1] | split("\n")')
+          target_list=$(make GLUON_RELEASE=0 print-targets | jq -Rsc '.[:-1] | split("\n")')
           echo "target={\"target\": $(echo $target_list)}" >> $GITHUB_OUTPUT
           echo "build_target={\"target\": $(echo $target_list)}" >> $GITHUB_OUTPUT
 
